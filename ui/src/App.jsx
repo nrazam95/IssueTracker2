@@ -1,7 +1,7 @@
 const dateRegex = new RegExp('^\\d\\d\\d\\d-\\d\\d-\\d\\d');
 
 /* eslint "react/react-in-jsx-scope": "off" */
-/* globals React ReactDOM PropTypes*/
+/* globals React ReactDOM PropTypes */
 /* eslint "react/jsx-no-undef": "off" */
 /* eslint "no-alert": "off" */
 
@@ -30,7 +30,7 @@ class IssueFilter extends React.Component {
     }
 }
 
-function IssueTable({issue}) {
+function IssueTable({issues}) {
     const issueRows = issues.map(issue => (<IssueRow key={issue.id} issue={issue}/>));
     const styled = {border: "1px solid silver", padding: 4};
     return (
@@ -95,10 +95,6 @@ class IssueAdd extends React.Component {
         );
     }
 }
-
-IssueAdd.propTypes = {
-    createIssue: PropTypes.func.isRequired,
-};
 
 async function graphQLFetch(query, variables = {}) {
     try {

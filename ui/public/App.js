@@ -29,7 +29,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 var dateRegex = new RegExp('^\\d\\d\\d\\d-\\d\\d-\\d\\d');
 /* eslint "react/react-in-jsx-scope": "off" */
 
-/* globals React ReactDOM PropTypes*/
+/* globals React ReactDOM PropTypes */
 
 /* eslint "react/jsx-no-undef": "off" */
 
@@ -90,7 +90,7 @@ var IssueFilter = /*#__PURE__*/function (_React$Component2) {
 }(React.Component);
 
 function IssueTable(_ref) {
-  var issue = _ref.issue;
+  var issues = _ref.issues;
   var issueRows = issues.map(function (issue) {
     return /*#__PURE__*/React.createElement(IssueRow, {
       key: issue.id,
@@ -175,10 +175,6 @@ var IssueAdd = /*#__PURE__*/function (_React$Component3) {
 
   return IssueAdd;
 }(React.Component);
-
-IssueAdd.propTypes = {
-  createIssue: PropTypes.func.isRequired
-};
 
 function graphQLFetch(_x) {
   return _graphQLFetch.apply(this, arguments);
