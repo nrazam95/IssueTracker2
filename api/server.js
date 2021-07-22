@@ -7,7 +7,6 @@ const { MongoClient } = require('mongodb');
 require('dotenv').config();
 const port = process.env.API_SERVER_PORT || 3000;
 
-const url = 'mongodb://localhost/issuetracker2';
 const url = process.env.DB_URL || 'mongodb://localhost/issuetracker2';
 let db;
 
@@ -102,7 +101,9 @@ const server = new ApolloServer({
 
 const app = express();
 
-server.applyMiddleware({ app, path: '/graphql' });
+const enableCors = (process.env.ENABLE_CORS || 'true') == 'true';
+console.log('CORS setting:', enableCors);
+server.applyMiddleware({ app, path: '/graphql', cors: enableCors });
 
 (async function () {
     try {
