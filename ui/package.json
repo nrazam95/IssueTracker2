@@ -4,29 +4,43 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "#start": "UI server. HMR is enabled in dev mode.",
     "start": "nodemon -w uiserver.js -w .env uiserver.js",
-    "compile": "babel src --out-dir public",
-    "watch": "babel src --out-dir public --watch --verbose",
+    "#lint": "Runs ESLint on all relevant files",
+    "compile": "webpack --mode production",
+    "#compile": "Generates JS bundles for production. Use with start.",
+    "watch": "webpack --watch",
+    "#watch": "Compile, and recompile on any changes.",
     "lint": "eslint . --ext js,jsx --ignore-pattern public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "dotenv": "^6.2.0",
     "express": "^4.17.1",
     "http-proxy-middleware": "^0.21.0",
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.19.4",
+    "prop-types": "^15.7.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
     "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.24.0"
+    "eslint-plugin-react": "^7.24.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-middleware": "^3.7.3",
+    "webpack-hot-middleware": "^2.25.0"
   }
 }
