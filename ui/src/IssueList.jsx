@@ -1,23 +1,13 @@
 import React from 'react';
 import URLSearchParams from 'url-search-params';
 import { Route } from 'react-router-dom';
+import { Panel } from 'react-bootstrap';
 
 import IssueFilter from './IssueFilter.jsx';
 import IssueTable from './IssueTable.jsx';
 import IssueAdd from './IssueAdd.jsx';
 import IssueDetail from './IssueDetail.jsx';
 import graphQLFetch from './graphQLFetch.js';
-
-class BorderWrap extends React.Component {
-    render() {
-        const borderedStyle = {border: "1px solid silver", padding: 6};
-        return (
-            <div style={borderedStyle}>
-                {this.props.children}
-            </div>
-        );
-    }
-}
 
 export default class IssueList extends React.Component {
     constructor() {
@@ -133,16 +123,19 @@ export default class IssueList extends React.Component {
         const { issues } = this.state;
         const { match } = this.props;
         return (
-            <BorderWrap>
-                <h1>Issue Tracker 2</h1>
-                <IssueFilter />
-                <hr />
+            <React.Fragment>
+                <Panel>
+                    <Panel.Heading>
+                        <Panel.Title toggle>Filter</Panel.Title>
+                    </Panel.Heading>
+                    <Panel.Body collapsible>
+                        <IssueFilter />
+                    </Panel.Body>
+                </Panel>
                 <IssueTable issues={issues} closeIssue={this.closeIssue} deleteIssue={this.deleteIssue} />
-                <hr />
                 <IssueAdd createIssue={this.createIssue} />
-                <hr />
                 <Route path={`${match.path}/:id`} component={IssueDetail} />
-            </BorderWrap>
+            </React.Fragment>
         );
     }
 }

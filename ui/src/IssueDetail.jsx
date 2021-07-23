@@ -41,7 +41,7 @@ export default class IssueDetail extends React.Component {
         return (
             <div>
                 <h3>Description</h3>
-                    <pre>{description}</pre>
+                <pre>{description}</pre>
             </div>
         );
     }
