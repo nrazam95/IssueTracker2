@@ -21,7 +21,7 @@ async function list(_, { status, effortMin, effortMax }) {
     return issues;
 }
 
-function validate(_, { issue }) {
+function validate( issue ) {
     const errors = [];
     if (issue.title.length < 3) {
         errors.push('Field "title" must be at least 3 characters long.');
