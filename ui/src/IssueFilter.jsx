@@ -108,7 +108,7 @@ class IssueFilter extends React.Component {
                 </Col>
                 <Col xs={6} sm={4} md={3} lg={2}>
                     <FormGroup>
-                        <ControlLabel>&nbsp;</ControlLabel>
+                        <ControlLabel></ControlLabel>
                         <ButtonToolbar>
                             <Button bsStyle="primary" type="button" onClick={this.applyFilter}>
                                 Apply
